@@ -30,7 +30,7 @@ At its core, this system operates through interaction with a sophisticated AI CL
 
 -   **Creating New Vacancy Files**: New vacancies are initiated by creating a Markdown file in either `01.Applied/` (default) or `00.For Future/`.
 -   **Mandatory Date Handling**: For most statuses, the 'Applied' date is mandatory. If not provided, the system defaults to the current date. For `00.For Future` vacancies, this date is explicitly omitted.
--   **Conditional Actions (e.g., Interview Scheduling)**: Adding a `## 📅 Schedule` section to a vacancy file automatically triggers its move to `02.Interview/`.
+-   **Conditional Actions (e.g., Interview Scheduling)**: Adding a `## 📅 Schedule` section to a vacancy file automatically triggers its move to `02.Interview/` and the creation of a corresponding event file in `Calendar/Interview/` for calendar integration.
 -   **Rejection/Closed Processes**: Indicating a rejection or closure for a vacancy automatically moves its file to `99.Rejected/`.
 -   **Contextual Understanding**: The agent understands commands based on company and position names, asking for clarification if needed.
 
@@ -110,6 +110,7 @@ To get this AI-powered HR Vacancy Management System up and running on your local
     Ensure you have the following installed:
     *   **Gemini CLI**: This project is designed to be interactive with the Gemini CLI. If you don't have it, please refer to its official documentation for installation instructions.
     *   **Obsidian (Optional)**: While not strictly required for the CLI agent's operation, Obsidian is the recommended application for interacting with the Markdown files as a knowledge base.
+    *   **Obsidian Full Calendar Plugin (for event integration)**: To effectively manage and visualize interview schedules, install the [Full Calendar plugin](https://github.com/obsidian-community/obsidian-full-calendar) in Obsidian. Event files are automatically created by the agent in `Calendar/Interview/` and can be viewed and managed through this plugin.
 
 3.  **Initial Setup**:
     Navigate into the cloned directory (`ai-vms`). This repository's root directory serves as the Obsidian vault containing all vacancy data.
