@@ -68,32 +68,39 @@ Here are examples of how you would interact with the CLI agent to manage your va
 ### 🆕 Creating New Vacancies
 
 -   **Create a new applied vacancy**:
-    `"new vacancy: company GlobalTech, position Full-stack Developer, link https://jobs.globaltech.com/fullstack-dev, applied today."`
+    `"new vacancy: company CompanyA, position Software Engineer, link https://jobs.globaltech.com/fullstack-dev, applied today."`
 -   **Create a vacancy for future consideration**:
-    `"add to future vacancy: company InnovateCorp, position Senior Fullstack TypeScript Developer, link https://careers.innovatecorp.com/senior-fs-ts-dev"`
+    `"add to future vacancy: company CompanyB, position Senior Fullstack Developer, link https://careers.innovatecorp.com/senior-fs-ts-dev"`
 
 ### 🗓️ Managing Status & Schedules
 
 -   **Add an interview schedule**:
-    `"create call for Tech Solutions Inc. — Senior Frontend Engineer on March 15, 2027 10:00 - 10:30 with Jane Doe, link https://meet.example.com/meeting-id"`
+    `"create call for Innovate Corp. — Senior Software Engineer on March 15, 2027 10:00 - 10:30 with Jane Doe, link https://meet.example.com/meeting-id"`
     *(This would automatically move the file to `02.Interview/`)*
 -   **Mark a vacancy as rejected**:
-    `"company Crypto Innovations — Senior Blockchain Developer rejected the application, update documents"`
+    `"company Quantum Solutions — Senior Backend Developer rejected the application, update documents"`
     *(This would move the file to `99.Rejected/`)*
 -   **Mark a vacancy as closed**:
-    `"the vacancy for Visionary Corp — Lead Frontend Engineer is closed"`
+    `"the vacancy for Pinnacle Tech — Lead QA Engineer is closed"`
     *(This would move the file to `99.Rejected/`)*
 -   **Update applied date for a vacancy**:
-    `"correct the applied date for NextGen Systems — Backend Developer to March 10th"`
+    `"correct the applied date for Future Systems — Data Scientist to March 10th"`
     *(This updates the date within the file)*
 
 ### 📝 Other Operations
 
 -   **Add a description section**:
-    `"add a description section to Quantum Labs — Fullstack Engineer. I will fill it myself."`
+    `"add a description section to Global Dynamics — Cloud Engineer. I will fill it myself."`
     *(This adds the `## Description` section to the file)*
 -   **Update a link**:
-    `"for Synergy Solutions — Full-stack JavaScript Engineer change the link to https://jobs.synergysolutions.com/fs-js-eng-new-url"`
+    `"for Apex Innovations — DevOps Engineer change the link to https://jobs.synergysolutions.com/fs-js-eng-new-url"`
+
+### 💌 Cover Letter Generation
+
+This system also empowers you to quickly generate customized cover letters.
+-   **How it works**: When you request a cover letter, the agent intelligently searches for a suitable template within the `@Cover\` directory. This directory can contain multiple templates (e.g., `Senior Frontend Dev.md`, `Fullstack Engineer.md`) allowing for tailored responses based on the specific role. It then replaces placeholders (like `{company_name}`) with the provided details, refines the text for optimal clarity, grammar, and style, and presents the polished cover letter directly in your console. This process is non-destructive; no files on your system are created or modified.
+-   **Example**:
+    `"write a cover letter for the position of Senior Frontend Developer at Stellar Innovations"`
 
 ### ⚙️ Local Deployment
 

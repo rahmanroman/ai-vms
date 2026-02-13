@@ -83,3 +83,18 @@ Template structure:
     - `REJECTED` -> `99.Rejected`
     - `CLOSED` -> `99.Rejected`
     - `For Future` -> `00.For Future`
+
+## Agent Instructions
+
+- All instructions should be recorded in GEMINI.md.
+
+## Cover Letter Generation Workflow
+
+When asked to write a cover letter:
+1.  **Vacancy and Company Details**: You *must* specify the vacancy and company name. If not provided, I will ask for clarification.
+2.  **Template Selection**: I will use a suitable template file, either provided by you or identified by me (e.g., `Senior React Developer.md`), based on the vacancy title. I will not create this file if it doesn't exist.
+3.  **Clarification**: If there is any ambiguity in selecting the template, I will ask for confirmation or allow you to specify the correct content to use as a template.
+4.  **Populate Template**: I will replace the macro `{company_name}` in the chosen template with the provided company name.
+5.  **Refinement**: I will then rephrase the text, check for spelling and grammar, improve phrase construction, and make other stylistic enhancements.
+6.  **Output**: The final cover letter will be displayed directly in the console.
+7.  **Preservation**: The original cover letter template file will remain unchanged and should never be modified by this process.
