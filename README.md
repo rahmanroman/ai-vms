@@ -10,6 +10,8 @@ Traditional HR tracking methods can be static and manual. This system addresses 
 -   **Automating Workflow**: An intelligent agent handles file creation, updates, and movements based on your natural language instructions.
 -   **Dynamic Status Management**: The status of a vacancy is visually and logically represented by its location within a structured folder system.
 -   **Centralized Knowledge**: All vacancy details are stored in easily readable Markdown files, compatible with Obsidian for enhanced knowledge management capabilities.
+-   **Automated Event and Calendar Management**: Seamlessly creates interview events and manages your calendar, keeping track of your schedule efficiently.
+-   **Template-Based Cover Letter Generation**: Generates customized cover letters on demand, utilizing templates to match specific vacancies and companies without manual editing.
 -   **Scalability & Clarity**: As your hiring pipeline grows, the system maintains organization and provides immediate insights into the status of every application.
 
 ## 🛠️ How It Works: The Agent-Driven Workflow
