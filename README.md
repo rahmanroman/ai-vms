@@ -35,6 +35,7 @@ At its core, this system operates through interaction with a sophisticated AI CL
 -   **Mandatory Date Handling**: For most statuses, the 'Applied' date is mandatory. If not provided, the system defaults to the current date. For `00.For Future` vacancies, this date is explicitly omitted.
 -   **Conditional Actions (e.g., Interview Scheduling)**: Adding a `## 📅 Schedule` section to a vacancy file automatically triggers its move to `02.Interview/` and the creation of a corresponding event file in `Calendar/Interview/` for calendar integration.
 -   **Rejection/Closed Processes**: Indicating a rejection or closure for a vacancy automatically moves its file to `99.Rejected/`.
+-   **Offer Process**: When a vacancy is identified as having an offer, its file is moved to `03.Offer/`.
 -   **Contextual Understanding**: The agent understands commands based on company and position names, asking for clarification if needed.
 
 ## 📄 Vacancy File Template (Full Definition)
@@ -47,7 +48,7 @@ All vacancy files adhere to the following structure. The `## 🚀 Details` secti
 ## 📅 Schedule
 
 * **Interviewer:** {name}
-* **Time:** {date}
+* **Time:** {date|YYYY-MM-DD} {start_time|HH:mm}—{end_time|HH:mm}
 * **Link:** {link}
 
 ## 🚀 Details
@@ -86,6 +87,9 @@ Here are examples of how you would interact with the CLI agent to manage your va
 -   **Mark a vacancy as closed**:
     `"the vacancy for Pinnacle Tech — Lead QA Engineer is closed"`
     *(This would move the file to `99.Rejected/`)*
+-   **Move a vacancy to offer status**:
+    `"offer received for CompanyC — Senior Fullstack Developer"`
+    *(This would move the file to `03.Offer/`)*
 -   **Update applied date for a vacancy**:
     `"correct the applied date for Future Systems — Data Scientist to March 10th"`
     *(This updates the date within the file)*

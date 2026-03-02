@@ -52,7 +52,7 @@ Template structure:
 ## 📅 Schedule
 
 * **Interviewer:** {name}
-* **Time:** {date}
+* **Time:** {date|YYYY-MM-DD} {start_time|HH:mm}—{end_time|HH:mm}
 * **Link:** {link}
 
 ## 🚀 Details
