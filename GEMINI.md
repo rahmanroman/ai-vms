@@ -32,22 +32,13 @@ When managing vacancies:
     a. Move the vacancy file from `00.For Future` to the `01.Applied` folder.
     b. Assign the current date (at the moment of this transition) as the 'Applied' date in the vacancy file.
 4.  **Conditional Action for Schedule Section**: If a `## 📅 Schedule` section is added to a vacancy file, and no `## 📅 Schedule` section existed previously in that file, then the vacancy file must be moved to the `02.Interview` folder.
-5.  **Event File Creation**: If a `## 📅 Schedule` section is added to a vacancy file, create an additional file in `Calendar\Interview\` using the name format `{date|YYYY-MM-DD} {company} — {interviewer_name}.md`. The content of this file should follow the YAML front matter template, with `endTime` calculated as 30 minutes after `startTime` if not explicitly provided:
-    ```
-    ---
-    title: {company} — {interviewer_name}
-    allDay: false
-    startTime: {start_time|HH:mm}
-    endTime: {end_time|HH:mm}
-    date: {date|YYYY-MM-DD}
-    completed:
-    ---
-    ```
+5.  **Event File Creation**: If a `## 📅 Schedule` section is added to a vacancy file, create an additional file in `Calendar\Interview\` using the name format `{date|YYYY-MM-DD} {company} — {interviewer_name}.md`. For details on the content and format, refer to the "Calendar Event Management Workflow" section below.
 6.  **Rejection Process**: If a company (and optionally a specific position) indicates a rejection, move the corresponding vacancy file to the `99.Rejected` folder.
 7.  **Vacancy Closed Process**: If a vacancy for a specified company (and optionally a specific position) is found to be closed (e.g., job posting removed), move the corresponding vacancy file to the `99.Rejected` folder.
-8.  **Contextual Understanding**: The context for task execution is typically the company name and, if relevant, the position name (especially if there are multiple positions within the same company). This context is provided in the prompt. If the company or position is unclear, always ask for clarification.
-9.  **Status Determination**: The status of a vacancy is determined solely by the folder its `.md` file resides in (e.g., `01.Applied`, `02.Interview`, `99.Rejected`, `00.For Future`).
-10. **Duplicate Check**: Before creating a new vacancy file, check for existing files with the same company name and/or a very similar position title. If a potential duplicate is found, warn the user and ask for confirmation before proceeding.
+8.  **Offer Process**: When a vacancy is identified as having an offer, move the corresponding vacancy file to the `03.Offer` folder.
+9.  **Contextual Understanding**: The context for task execution is typically the company name and, if relevant, the position name (especially if there are multiple positions within the same company). This context is provided in the prompt. If the company or position is unclear, always ask for clarification.
+10. **Status Determination**: The status of a vacancy is determined solely by the folder its `.md` file resides in (e.g., `01.Applied`, `02.Interview`, `99.Rejected`, `00.For Future`, `03.Offer`).
+11. **Duplicate Check**: Before creating a new vacancy file, check for existing files with the same company name and/or a very similar position title. If a potential duplicate is found, warn the user and ask for confirmation before proceeding.
 
 ### Vacancy File Template (Full Definition)
 
@@ -80,6 +71,7 @@ Template structure:
 - Filename mask: `<company> — <position>.md`
 - Folders for vacancies based on status:
     - `Applied` -> `01.Applied`
+    - `Offer` -> `03.Offer`
     - `REJECTED` -> `99.Rejected`
     - `CLOSED` -> `99.Rejected`
     - `For Future` -> `00.For Future`
@@ -87,6 +79,25 @@ Template structure:
 ## Agent Instructions
 
 - All instructions should be recorded in GEMINI.md.
+
+## Calendar Event Management Workflow
+
+When asked to create a calendar event not associated with a vacancy:
+1.  **Input Data**: You will be provided with event details (date, company, interviewer name, start time, end time).
+2.  **Event File Creation**: Create a file in `Calendar\Interview\` using the name format `{date|YYYY-MM-DD} {company} — {interviewer_name}.md`.
+3.  **Content Template**: The content of this file should follow the YAML front matter template, with `endTime` calculated as 30 minutes after `startTime` if not explicitly provided:
+    ```
+    ---
+    title: {company} — {interviewer_name}
+    allDay: false
+    startTime: {start_time|HH:mm}
+    endTime: {end_time|HH:mm}
+    date: {date|YYYY-MM-DD}
+    completed:
+    link: {link}
+    ---
+    ```
+4.  **No Vacancy File Updates**: This action should NOT trigger any updates or movements of vacancy files.
 
 ## Cover Letter Generation Workflow
 

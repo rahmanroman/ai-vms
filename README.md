@@ -24,6 +24,7 @@ At its core, this system operates through interaction with a sophisticated AI CL
     -   `00.For Future/`: Vacancies saved for future consideration.
     -   `01.Applied/`: Applications that have been submitted.
     -   `02.Interview/`: Vacancies currently in the interview stage.
+    -   `03.Offer/`: Vacancies where an offer has been received.
     -   `99.Rejected/`: Applications that have been rejected or closed.
 2.  **Template-Based Files**: All vacancy details are stored in individual Markdown files generated from a consistent template.
 3.  **Dynamic Date Handling**: Dates are automatically managed, defaulting to the current date if not specified for mandatory fields.
@@ -141,6 +142,7 @@ The project's root directory functions as an Obsidian vault. Vacancy files are o
 -   `00.For Future/`
 -   `01.Applied/`
 -   `02.Interview/`
+-   `03.Offer/`
 -   `99.Rejected/`
 
 ## 🤝 Contribution
